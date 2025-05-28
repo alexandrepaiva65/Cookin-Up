@@ -19,10 +19,17 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { obterCategorias } from '@/http/index'
+import type ICategoria from '@/interfaces/ICategoria'
 
-const categorias = ref(obterCategorias())
+const categorias = ref<ICategoria[]>([])  // define o tipo do ref
+
+onMounted(async () => {
+  categorias.value = await obterCategorias()
+})
+
+
 </script>
 
 <style scoped>

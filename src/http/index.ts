@@ -1,14 +1,9 @@
-export function obterCategorias() {
-    return [
-      {
-        "nome": "Laticínios e Ovos",
-        "ingredientes": ["Ovos", "Queijo", "Leite", "Manteiga", "Creme de Leite", "Iogurte", "Leite Condensado", "Sorvete"],
-        "rotulo": "laticinios_e_ovos"
-      },
-      {
-        "nome": "Farinhas e Fermentos",
-        "ingredientes": ["Farinha de trigo", "Polvilho", "Farinha de rosca", "Canjica", "Farinha de mandioca", "Fubá", "Linhaça", "Fermento químico"],
-        "rotulo": "farinhas_e_fermentos"
-      }
-    ]
-  }
+import type ICategoria from '@/interfaces/ICategoria';
+
+export async function obterCategorias() {
+  const resposta = await fetch('https://gist.githubusercontent.com/alexandrepaiva65/095767b9929c9952ac0e84c101917bf7/raw/55ee23678f47a9a1e9e58ca5f890cdd6d6862f3d/categorias.json');
+
+  const categorias: ICategoria[] = await resposta.json();
+
+  return categorias;
+}
