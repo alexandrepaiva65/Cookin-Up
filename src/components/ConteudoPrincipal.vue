@@ -14,11 +14,14 @@
         Sua lista está vazia, selecione ingredientes para iniciar.
     </p>
     </section>
+    <SelecionarIngredientes />
   </main>
 </template>
 
 <script  lang="ts" setup>
 import { ref } from 'vue'
+import SelecionarIngredientes from './SelecionarIngredientes.vue';
+
 
 const ingredientes = ref(['Alho', 'Manteiga', 'Orégano'])
 
