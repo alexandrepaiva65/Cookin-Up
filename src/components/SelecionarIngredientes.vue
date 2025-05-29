@@ -8,7 +8,9 @@
 
     <ul class="categorias">
       <li v-for="categoria in categorias" :key="categoria.nome">
-        {{ categoria.nome }}
+        <CardCategoria 
+          :categoria="categoria" 
+        />
       </li>
     </ul>
 
@@ -22,6 +24,7 @@
 import { ref, onMounted } from 'vue'
 import { obterCategorias } from '@/http/index'
 import type ICategoria from '@/interfaces/ICategoria'
+import CardCategoria from './CardCategoria.vue'
 
 const categorias = ref<ICategoria[]>([])  // define o tipo do ref
 
