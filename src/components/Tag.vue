@@ -1,0 +1,26 @@
+<template>
+    <span class="tag">
+      {{ texto }}
+    </span>
+  </template>
+  
+  <script lang="ts" setup>
+  const props = defineProps<{
+    texto: string
+  }>();
+  </script>
+  
+  <style scoped>
+  .tag {
+    display: inline-block;
+    border-radius: 0.5rem;
+    min-width: 4.25rem;
+    padding: 0.5rem;
+    text-align: center;
+    transition: 0.2s;
+    color: var(--creme, #FFFAF3);
+    background: var(--coral, #F0633C);
+    font-weight: 700;
+  }
+  </style>
+  
