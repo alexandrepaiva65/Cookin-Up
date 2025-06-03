@@ -10,20 +10,20 @@
       </header>
       <ul class="categoria__ingredientes">
         <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-          <Tag :texto="ingrediente" />
+          <IngredienteSelecionavel :ingrediente="ingrediente" />
         </li>
       </ul>
     </article>
   </template>
   
-  <script lang="ts" setup>
-  import Tag from './Tag.vue';
+<script lang="ts" setup>
+  import IngredienteSelecionavel from './IngredienteSelecionavel.vue';
   import type ICategoria from '@/interfaces/ICategoria';
   
   const props = defineProps<{
     categoria: ICategoria
   }>();
-  </script>
+</script>
   
   <style scoped>
   .categoria {
