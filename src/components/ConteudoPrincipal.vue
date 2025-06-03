@@ -14,7 +14,10 @@
         Sua lista está vazia, selecione ingredientes para iniciar.
     </p>
     </section>
-    <SelecionarIngredientes />
+    <SelecionarIngredientes 
+      @adicionar-ingrediente="adicionarIngredientes"
+      @remover-ingrediente="removerIngrediente"
+    />
   </main>
 </template>
 
@@ -24,7 +27,15 @@ import SelecionarIngredientes from './SelecionarIngredientes.vue';
 import Tag from './Tag.vue';
 
 
-const ingredientes = ref(['Alho', 'Manteiga', 'Orégano'])
+const ingredientes = ref([] as string[])
+
+const adicionarIngredientes = (ingrediente: string) => {
+  ingredientes.value.push(ingrediente)
+}
+
+const removerIngrediente = (ingrediente: string) => {
+  ingredientes.value = ingredientes.value.filter(i => i !== ingrediente)
+}
 
 </script>
 

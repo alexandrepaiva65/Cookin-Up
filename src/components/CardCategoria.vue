@@ -10,7 +10,11 @@
       </header>
       <ul class="categoria__ingredientes">
         <li v-for="ingrediente in categoria.ingredientes" :key="ingrediente">
-          <IngredienteSelecionavel :ingrediente="ingrediente" />
+          <IngredienteSelecionavel 
+            :ingrediente="ingrediente" 
+            @adicionar-ingrediente="emit('adicionarIngrediente', $event)"
+            @remover-ingrediente="emit('removerIngrediente', $event)"
+          />
         </li>
       </ul>
     </article>
@@ -23,6 +27,12 @@
   const props = defineProps<{
     categoria: ICategoria
   }>();
+
+  const emit = defineEmits<{
+    (e: 'adicionarIngrediente', ingrediente: string): void;
+    (e: 'removerIngrediente', ingrediente: string): void;
+  }>();
+
 </script>
   
   <style scoped>
