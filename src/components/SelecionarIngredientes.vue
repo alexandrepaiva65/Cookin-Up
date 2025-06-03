@@ -19,6 +19,10 @@
     <p class="paragrafo dica">
       *Atenção: consideramos que você tem em casa sal, pimenta e água.
     </p>
+
+    <BotaoPrincipal 
+      texto="Buscar receitas"
+    />
   </section>
 </template>
 
@@ -27,6 +31,7 @@ import { ref, onMounted } from 'vue'
 import { obterCategorias } from '@/http/index'
 import type ICategoria from '@/interfaces/ICategoria'
 import CardCategoria from './CardCategoria.vue'
+import BotaoPrincipal from './BotaoPrincipal.vue'
 
 const categorias = ref<ICategoria[]>([])  // define o tipo do ref
 
