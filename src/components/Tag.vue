@@ -6,8 +6,8 @@
   
   <script lang="ts" setup>
   const props = defineProps<{
-    texto: {type: String, required: true},
-    ativa: Boolean
+    texto: string;
+    ativa?: boolean;
   }>();
   </script>
   
