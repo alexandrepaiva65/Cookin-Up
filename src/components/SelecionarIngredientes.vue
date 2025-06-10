@@ -20,7 +20,7 @@
       *Atenção: consideramos que você tem em casa sal, pimenta e água.
     </p>
 
-    <BotaoPrincipal 
+    <BotaoPrincipal @click="emit('buscarReceitas')"
       texto="Buscar receitas"
     />
   </section>
@@ -42,6 +42,7 @@ onMounted(async () => {
   const emit = defineEmits<{
     (e: 'adicionarIngrediente', ingrediente: string): void;
     (e: 'removerIngrediente', ingrediente: string): void;
+    (e: 'buscarReceitas'): void;
   }>();
 </script>
 
