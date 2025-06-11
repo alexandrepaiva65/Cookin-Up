@@ -27,6 +27,10 @@
 </template>
 
 <script setup lang="ts">
+defineOptions({
+  name: 'SelecionarIngredientes'
+});
+
 import { ref, onMounted } from 'vue'
 import { obterCategorias } from '@/http/index'
 import type ICategoria from '@/interfaces/ICategoria'

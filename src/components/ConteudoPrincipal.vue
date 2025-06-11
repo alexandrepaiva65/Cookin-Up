@@ -14,12 +14,20 @@
         Sua lista está vazia, selecione ingredientes para iniciar.
     </p>
     </section>
-    <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
-      @adicionar-ingrediente="adicionarIngredientes"
-      @remover-ingrediente="removerIngrediente"
-      @buscar-receitas="navegar('MostrarReceitas')"
-    />
-    <MostrarReceitas v-else-if="conteudo === 'MostrarReceitas'" />
+
+    <keep-alive include="SelecionarIngredientes">
+      <SelecionarIngredientes v-if="conteudo === 'SelecionarIngredientes'"
+        @adicionar-ingrediente="adicionarIngredientes"
+        @remover-ingrediente="removerIngrediente"
+        @buscar-receitas="navegar('MostrarReceitas')"
+      />
+      <MostrarReceitas
+        v-else-if="conteudo === 'MostrarReceitas'"
+        :ingredientes="ingredientes"
+        @editar-receitas="navegar('SelecionarIngredientes')"
+      />
+    </keep-alive>
+
   </main>
 </template>
 
@@ -32,7 +40,7 @@ import Tag from './Tag.vue';
 type Pagina = 'SelecionarIngredientes' | 'MostrarReceitas'
 
 const ingredientes = ref([] as string[])
-const conteudo = ref<Pagina>('MostrarReceitas')
+const conteudo = ref<Pagina>('SelecionarIngredientes')
 
 const adicionarIngredientes = (ingrediente: string) => {
   ingredientes.value.push(ingrediente)
